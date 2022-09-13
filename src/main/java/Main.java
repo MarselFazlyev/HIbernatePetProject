@@ -56,10 +56,13 @@ public class Main {
             System.out.println(director5.getMovies());*/
 
 //  удалите фильм у любого режиссера
-            Director director1 = session.get(Director.class,1);
+      /*      Director director1 = session.get(Director.class,1);
             System.out.println(director1.getMovies());
-            director1.getMovies().remove(2);
-            session.persist(director1);
+            session.remove(director1.getMovies().get(1));
+            System.out.println(director1.getMovies());*/
+
+            Movie movie = new Movie(session.get(Director.class,1),"Pulp Fiction",1994);
+            session.persist(movie);
 
 
             session.getTransaction().commit();
