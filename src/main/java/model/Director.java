@@ -2,6 +2,7 @@ package model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,8 +20,8 @@ public class Director {
     @Column(name = "age")
     private int age;
 
-    @OneToMany (mappedBy = "owner")
-    private List<Movie> movies ;
+    @OneToMany (mappedBy = "owner",cascade = CascadeType.PERSIST)
+    private List<Movie> movies = new ArrayList<>();
 
     public Director(){}
 
